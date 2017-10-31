@@ -1,3 +1,3 @@
 require('dotenv').config()
 const config = require('./knexfile')
-module.exports = knex('knex')(config)
+module.exports = require('knex')(config)

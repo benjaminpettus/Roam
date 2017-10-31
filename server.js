@@ -3,6 +3,7 @@ const app = express()
 const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 const path = require('path')
+const routes = require('./routes')
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
@@ -14,11 +15,8 @@ app.use(bodyParser.json())
 
 
 
+app.use(routes)
 
-
-app.get('/', (request, response) => {
-  response.render('index')
-})
 
 app.listen(port, () => {
   console.log("app is running on " + port)

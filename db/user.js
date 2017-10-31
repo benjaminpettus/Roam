@@ -31,5 +31,5 @@ module.exports = {
   byUsername,
   byId,
   byEmail,
-  remove,
+  
 }
