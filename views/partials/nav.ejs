@@ -1,8 +1,12 @@
-<nav class="navbar is-transparent">
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="container">
-      <div class="nav-left">
-        <a class="nav-item" href="/">VINYL</a>
-      <div class="nav-right nav-menu">
+    <div class="navbar-brand">
+   <!-- navbar items, navbar burger... -->
+     <a class="nav-item" href="/">VINYL</a>
+    </div>
+
+
+      <div class="navbar-end nav-menu">
         <% if (locals.session) { %>
           <a class="nav-item is-tab" href="/users">Profile</a>
           <a class="nav-item is-tab" href="/logout">Logout</a>
@@ -11,6 +15,6 @@
           <a class="nav-item is-tab" href="/signup">Sign Up</a>
         <% } %>
       </div>
-    </div>
+
   </div>
 </nav>
