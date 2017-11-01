@@ -5,6 +5,7 @@ const passport = require('../auth/passport')
 
 
 preAuth.get('/', (request, response) => {
+  console.log('im here')
   response.render('index')
 })
 
