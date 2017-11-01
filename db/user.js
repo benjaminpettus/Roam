@@ -19,19 +19,20 @@ const create = ( email, username, password ) => {
 }
 
 const byUsername = (username) => {
-  knex('users')
+  return knex('users')
   .where({username: `${username}`})
   .select()
 }
 
 const byId = (id) => {
-  knex('users')
+  return knex('users')
   .where({id: `${id}`})
   .select()
+  .then( user => user[0])
 }
 
 const byEmail = (email) => {
-  knex('users')
+  return knex('users')
   .where({email: `${email}`})
   .select()
 }

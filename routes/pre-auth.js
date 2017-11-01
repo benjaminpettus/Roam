@@ -1,6 +1,7 @@
 const preAuth = require('express').Router()
 const Users = require('../db/user')
 const bcrypt = require('bcrypt')
+const passport = require('../auth/passport')
 
 
 preAuth.get('/', (request, response) => {
@@ -11,10 +12,10 @@ preAuth.get('/signin', (request, response) => {
   response.render('signin')
 })
 
-preAuth.post('/signin', (request, response) => {
-  console.log(request.body)
-  console.log('Posted that shit')
-})
+preAuth.post('/signin',  passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/signin'
+}))
 
 
 preAuth.get('/signup', (request, response) => {
