@@ -11,6 +11,7 @@ preAuth.get('/signin', (request, response) => {
 })
 
 preAuth.post('/signin', (request, response) => {
+  console.log(request.body)
   console.log('Posted that shit')
 })
 
@@ -20,7 +21,7 @@ preAuth.get('/signup', (request, response) => {
 })
 
 preAuth.post('/signup', (request, response) => {
-  console.log('Posted that shit')
+  console.log(request.body)
 })
 
 
