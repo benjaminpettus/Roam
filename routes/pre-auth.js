@@ -1,5 +1,5 @@
 const preAuth = require('express').Router()
-const users = require('../db/user')
+const Users = require('../db/user')
 
 
 preAuth.get('/', (request, response) => {
@@ -21,7 +21,11 @@ preAuth.get('/signup', (request, response) => {
 })
 
 preAuth.post('/signup', (request, response) => {
-  console.log(request.body)
+  const { email, username, password } = request.body
+  Users.create( email, username, password )
+    .then(user => {
+      response.redirect('signin')
+    })
 })
 
 

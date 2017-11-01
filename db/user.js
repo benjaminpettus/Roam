@@ -1,11 +1,21 @@
 const knex = require('./knex')
 
 
-const create = (email, username, password) => {
-  knex('users')
-  .returning('id')
-  .insert({email: `${email}`, username: `${username}`, password: `${password}`})
-
+const create = ( email, username, password ) => {
+  return knex.select().from('users').where({ email: email })
+    .then( user => {
+      if(!user.length) {
+      return knex( 'users' )
+        .insert({
+          email: email,
+          username:username,
+          password: password
+        })
+        .returning('*')
+      }
+    })
+    .then( newUser => newUser )
+    .catch( error => console.error )
 }
 
 const byUsername = (username) => {
@@ -30,6 +40,6 @@ module.exports = {
   create,
   byUsername,
   byId,
-  byEmail,
-  
+  byEmail
+
 }
