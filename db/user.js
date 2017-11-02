@@ -37,9 +37,13 @@ const byEmail = (email) => {
   .select()
 }
 
-const updateInfo = ( id ) => {
+const updateInfo = ( id, username, current_city ) => {
   return knex('users')
   .where({id: `${id}`})
+  .update({
+    username: `${username}`,
+    current_city: `${current_city}`
+  })
   .select()
   .then( user => user )
 }

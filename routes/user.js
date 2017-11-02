@@ -12,7 +12,6 @@ user.get('/', ( request, response ) => {
 
 user.get('/:id', ( request, response ) => {
   const { id } = request.params
-  console.log('from id route', id)
   User.byId(id)
   .then( user => {
     response.render('profile', {session: request.session, id: `${id}`})
@@ -20,11 +19,19 @@ user.get('/:id', ( request, response ) => {
   .catch(error => console.error )
 })
 
-user.get('/id:/update', ( requst, response ) => {
+user.get('/:id/edit-user', ( request, response ) => {
   const { id } = request.params
-  response.render('update-user')
+  response.render('edit-user', { session: request.session, id: `${id}` })
 })
 
+user.put('/:id/edit-user', ( request, response ) => {
+  const { id } = request.params
+  const { username, current_city } = request.body
+  User.updateInfo( id, username, current_city)
+  .then( user => {
+    response.redirect(`/user/${id}`)
+  })
+})
 
 
 
