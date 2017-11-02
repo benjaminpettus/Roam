@@ -4,10 +4,10 @@
    <!-- navbar items, navbar burger... -->
      <a class="nav-item" href="/">VINYL</a>
     </div>
-    
+
       <div class="navbar-end nav-menu">
         <% if (locals.session) { %>
-          <a class="nav-item is-tab" href="/users">Profile</a>
+          <a class="nav-item is-tab" href="/user">Profile</a>
           <a class="nav-item is-tab" href="/logout">Logout</a>
         <% } else { %>
           <a class="nav-item is-tab" href="/signin" >Sign In</a>

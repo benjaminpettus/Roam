@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('email')
     table.string('username')
     table.string('password')
+    table.string('current_city')
     table.timestamp('member_since', true).defaultTo(knex.fn.now())
   })
 };

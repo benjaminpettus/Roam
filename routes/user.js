@@ -27,6 +27,7 @@ user.get('/:id/edit-user', ( request, response ) => {
 user.put('/:id/edit-user', ( request, response ) => {
   const { id } = request.params
   const { username, current_city } = request.body
+  console.log( username, current_city )
   User.updateInfo( id, username, current_city)
   .then( user => {
     response.redirect(`/user/${id}`)
