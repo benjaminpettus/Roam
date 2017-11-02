@@ -14,7 +14,7 @@ user.get('/:id', ( request, response ) => {
   const { id } = request.params
   User.byId(id)
   .then( user => {
-    response.render('profile', {session: request.session, id: `${id}`})
+    response.render('profile', {session: request.session, id: `${id}`, user: user})
   })
   .catch(error => console.error )
 })

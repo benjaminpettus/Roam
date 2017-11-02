@@ -28,7 +28,7 @@ const byId = (id) => {
   return knex('users')
   .where({id: `${id}`})
   .select()
-  .then( user => user)
+  .then( user => user[0])
 }
 
 const byEmail = (email) => {
