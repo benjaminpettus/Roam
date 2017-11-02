@@ -36,15 +36,13 @@ passport.use( new LocalStrategy({
 ))
 
 passport.serializeUser(( user, done ) => {
-  console.log('serialize', user)
   done(null, user.id)
 })
 
 passport.deserializeUser(( id, done ) => {
-  console.log('deSerialize', id)
   User.byId( id )
     .then(( user, error ) => {
-      done( error, user)
+      done( error, user )
     })
 })
 
