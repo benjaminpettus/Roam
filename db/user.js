@@ -37,10 +37,19 @@ const byEmail = (email) => {
   .select()
 }
 
+const updateInfo = ( id ) => {
+  return knex('users')
+  .where({id: `${id}`})
+  .select()
+  .then( user => user )
+}
+
+
 module.exports = {
   create,
   byUsername,
   byId,
-  byEmail
+  byEmail,
+  updateInfo
 
 }

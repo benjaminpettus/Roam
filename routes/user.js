@@ -15,11 +15,15 @@ user.get('/:id', ( request, response ) => {
   console.log('from id route', id)
   User.byId(id)
   .then( user => {
-    response.render('profile', {session: request.session})
+    response.render('profile', {session: request.session, id: `${id}`})
   })
+  .catch(error => console.error )
 })
 
-
+user.get('/id:/update', ( requst, response ) => {
+  const { id } = request.params
+  response.render('update-user')
+})
 
 
 

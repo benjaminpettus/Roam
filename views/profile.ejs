@@ -1,8 +1,22 @@
 <% include partials/header %>
 
 <h1>Profile Page</h1>
+<div class="columns">
 
+  <div class="column user-info">
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/256x256.png">
+    </figure>
+    <h4>Name</h4>
+    <h4>Date Joined</h4>
+    <h4>Current City</h4>
+    <a class="button is-info is-hovered" href="/user/<%= id %>/update">Edit Profile</a>
+  </div>
 
+  <div class="column posts">
+  </div>
+
+</div>
 
 
 
