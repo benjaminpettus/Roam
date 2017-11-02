@@ -30,13 +30,13 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
-//
-// app.use(( request, response, next ) => {
-//   if(!( request.cookies && request.cookies.user_sid )){
-//     response.clearCookie('user_sid')
-//   }
-//   next()
-// })
+
+app.use(( request, response, next ) => {
+  if(!( request.cookies && request.cookies.user_sid )){
+    response.clearCookie('user_sid')
+  }
+  next()
+})
 
 
 app.use(router)

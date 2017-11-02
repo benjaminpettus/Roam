@@ -5,8 +5,11 @@ const passport = require('../auth/passport')
 
 
 preAuth.get('/', (request, response) => {
-  console.log('im here')
-  response.render('index')
+  if(request.session){
+    response.render('index', { session: request.session.passport })
+  } else{
+    response.render('index')
+  }
 })
 
 preAuth.get('/signin', (request, response) => {
@@ -34,7 +37,7 @@ preAuth.post('/signup', (request, response) => {
 })
 
 preAuth.get('/logout', (request, response) => {
-  console.log('you are logged out b')
+  response.clearCookie('user_sid').redirect('/')
 })
 
 
