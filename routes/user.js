@@ -2,9 +2,6 @@ const user = require('express').Router()
 const User = require('../db/user')
 
 
-
-
-
 user.get('/', ( request, response ) => {
   const { user } = request.session.passport
   response.redirect(`/user/${user}`)
