@@ -1,10 +1,10 @@
 <% include partials/header %>
 
 <% console.log('from view', user)%>
-<h1>Profile Page</h1>
 <div class="columns">
-
-  <div class="column user-info">
+  <div class="column is-1">
+  </div>
+  <div class="column user-info is-3">
     <figure class="image is-128x128">
       <img src="https://bulma.io/images/placeholders/256x256.png">
     </figure>
@@ -15,8 +15,29 @@
   </div>
 
   <div class="column posts">
+      <div class="card is-6">
+        <div class="card-content">
+            <div class="columns">
+              <div class="column is-10">
+                <a href="#">
+                  <p class="title">
+                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+                  </p>
+                </a>
+              </div>
+              <div class="column is-1">
+                <a class="icon is-large" href="#">
+<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                <a class="icon is-large" href="#"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+
+              </div>
+            </div>
+        </div>
+      </div>
   </div>
 
+  <div class="column is-1">
+  </div>
 </div>
 
 
