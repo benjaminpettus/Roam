@@ -10,11 +10,10 @@ user.get('/', ( request, response ) => {
 
 user.get('/:id', ( request, response ) => {
   const { id } = request.params
-  return User.byId(id)
+  User.byId( id )
   .then( user => {
   return Posts.byUserId(id)
   .then( posts => {
-    console.log('posts in route', posts)
     response.render('profile', {session: request.session, id: `${id}`, user: user, posts: posts})
   })
   })

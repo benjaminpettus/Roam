@@ -25,7 +25,7 @@ const byId = ( postId ) => {
   return knex('posts')
   .where({ id: `${postId}`})
   .select()
-  .then( posts => posts )
+  .then( posts => posts[0] )
 }
 
 const deleteById = ( postId ) => {
