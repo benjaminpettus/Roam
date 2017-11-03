@@ -1,5 +1,6 @@
 const user = require('express').Router()
 const User = require('../db/user')
+const Posts = require('../db/posts')
 
 
 user.get('/', ( request, response ) => {
@@ -9,9 +10,13 @@ user.get('/', ( request, response ) => {
 
 user.get('/:id', ( request, response ) => {
   const { id } = request.params
-  User.byId(id)
+  return User.byId(id)
   .then( user => {
-    response.render('profile', {session: request.session, id: `${id}`, user: user})
+  return Posts.byUserId(id)
+  .then( posts => {
+    console.log('posts in route', posts)
+    response.render('profile', {session: request.session, id: `${id}`, user: user, posts: posts})
+  })
   })
   .catch(error => console.error )
 })

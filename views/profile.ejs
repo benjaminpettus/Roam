@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<% console.log('from view', user)%>
+
 <div class="columns">
   <div class="column is-1">
   </div>
@@ -13,27 +13,27 @@
     <h4>Current City: <%= user.current_city %></h4>
     <a class="button is-info is-hovered" href="/user/<%= id %>/edit-user">Edit Profile</a>
   </div>
-
   <div class="column posts">
+
+    <% posts.forEach(function(post) { %>
+      <% console.log('single post :::::',post)%>
       <div class="card is-6">
         <div class="card-content">
-            <div class="columns">
-              <div class="column is-10">
-                <a href="#">
-                  <p class="title">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                  </p>
-                </a>
-              </div>
-              <div class="column is-1">
-                <a class="icon is-large" href="#">
-<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+          <div class="columns">
+            <div class="column is-10">
+              <a href="#">
+                <p class="title"><%= post.title %></p>
+              </a>
+            </div>
+            <div class="column is-1">
+              <a class="icon is-large" href="#">
+                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
                 <a class="icon is-large" href="#"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
-
               </div>
             </div>
+          </div>
         </div>
-      </div>
+      <% }) %>
   </div>
 
   <div class="column is-1">
