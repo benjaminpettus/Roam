@@ -25,9 +25,9 @@ user.get('/:id/edit-user', ( request, response ) => {
   User.byId( id )
   .then( user => {
     if( request.session.passport.user == id ){
-      response.render('edit-user', { session: request.session, id: `${id}` })
+      return response.render('edit-user', { session: request.session, id: `${id}`, user: user })
     }
-      response.redirect(`/user/${id}`)
+      return response.redirect(`/user/${id}`)
   })
 })
 
@@ -35,10 +35,13 @@ user.put('/:id/edit-user', ( request, response ) => {
   const { id } = request.params
   const { username, current_city } = request.body
   console.log( username, current_city )
-  User.updateInfo( id, username, current_city)
-  .then( user => {
-    response.redirect(`/user/${id}`)
-  })
+  if( request.session.passport.user == id ){
+    User.updateInfo( id, username, current_city)
+    .then( user => {
+      response.redirect(`/user/${id}`)
+    })
+  }
+  response.redirect(`/user/${id}`)
 })
 
 

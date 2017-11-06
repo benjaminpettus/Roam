@@ -8,11 +8,11 @@
   </div>
   <div class="column is-6">
     <div class="box is-half">
-      <form class="" action="/user/<%= id %>/edit" method="PUT">
+      <form class="" action="/user/<%= id %>/edit-user" method="PUT">
         <div class="field">
           <label class="label is-large">Username</label>
           <div class="control has-icons-left">
-            <input class="input is-medium" type="text" name="username" placeholder="Username">
+            <input class="input is-medium" type="text" name="username" value="<%= user.username%>">
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
@@ -22,7 +22,7 @@
         <div class="field">
           <label class="label is-large">Current City</label>
           <div class="control has-icons-left">
-            <input class="input is-medium" type="text" name="current_city" placeholder="Current City">
+            <input class="input is-medium" type="text" name="current_city" value="<%= user.current_city %>">
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
