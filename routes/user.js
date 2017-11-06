@@ -17,12 +17,18 @@ user.get('/:id', ( request, response ) => {
     response.render('profile', {session: request.session, id: `${id}`, user: user, posts: posts})
   })
   })
-  .catch(error => console.error )
+  .catch(error => error )
 })
 
 user.get('/:id/edit-user', ( request, response ) => {
   const { id } = request.params
-  response.render('edit-user', { session: request.session, id: `${id}` })
+  User.byId( id )
+  .then( user => {
+    if( request.session.passport.user == id ){
+      response.render('edit-user', { session: request.session, id: `${id}` })
+    }
+      response.redirect(`/user/${id}`)
+  })
 })
 
 user.put('/:id/edit-user', ( request, response ) => {
