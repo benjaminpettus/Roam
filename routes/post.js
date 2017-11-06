@@ -4,21 +4,10 @@ const User = require('../db/user')
 
 post.get('/:id', ( request, response ) => {
   const { id } = request.params
-  Posts.byId(id)
+  Posts.byId( id )
   .then( post => {
-    const userId = post.user_id
-  return User.byId(userId)
-  .then( user => {
-    console.log('user in route:::',user)
-    response.render('post', {post:post, user:user})
+    response.render('post', {post:post, session: request.session})
   })
-  })
-  // Posts.byId(id)
-  // .then( post => {
-  //   console.log('in route::::',post)
-  //   response.render('post', {post: post})
-  // })
-
 })
 
 

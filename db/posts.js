@@ -23,10 +23,20 @@ const byUserId = ( userId ) => {
 
 const byId = ( postId ) => {
   return knex('posts')
-  .where({ id: `${postId}`})
-  .select()
+  .join('users', 'posts.user_id', '=', 'users.id')
+  .join('cities', 'posts.city_id', '=', 'cities.id')
+  .where('posts.id', postId)
+  .select('posts.id', 'posts.title','posts.content', 'posts.created_on', 'users.username', 'cities.city_name', 'users.member_since', 'users.current_city')
   .then( posts => posts[0] )
+  .catch( error => console.error )
 }
+
+// const byId = ( postId ) => {
+//   return knex('posts')
+//   .where({ id: `${postId}`})
+//   .then( posts => posts[0] )
+// }
+
 
 const deleteById = ( postId ) => {
 
