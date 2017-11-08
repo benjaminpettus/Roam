@@ -12,6 +12,9 @@
         <%= post.city_name %>
       <% } %>
 
+      <% if (typeof city == 'object' && city) { %>
+        <%= city.city_name %>
+      <% } %>
     </div>
 
     <div class="navbar-end nav-menu">
