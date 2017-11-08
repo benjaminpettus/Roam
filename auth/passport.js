@@ -11,20 +11,22 @@ passport.use( new LocalStrategy({
       console.log('1')
       User.byEmail( email )
         .then(user => {
-          console.log('2')
-        if( !user ) {
-          console.log('3')
-          return done(null, false, {message: 'Incorrect username/password'} )
-        }
-        bcrypt.compare( password, user.password, ( error, response ) => {
+            console.log('2')
+          if( !user ) {
+            console.log('3')
+            return done(null, false, {message: 'Incorrect username/password'} )
+          }
+          bcrypt.compare( password, user.password, ( error, response ) => {
           console.log('4')
-          if( false ) {
+          console.log(password, user.password)
+          console.log('password matcher :::',response)
+          if( response === false ) {
             console.log('5')
             return done( null, false )
           }
           console.log('6')
           console.log('user from login', user)
-          return done( null, user[0] )
+          return done( null, user )
         })
       })
       .catch( error => {

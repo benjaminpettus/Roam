@@ -1,8 +1,44 @@
 <% include partials/header %>
 
-<h1>Profile Page</h1>
 
+<div class="columns">
+  <div class="column is-1">
+  </div>
+  <div class="column user-info is-3">
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/256x256.png">
+    </figure>
+    <h4>Name: <%= user.username %></h4>
+    <h4>Date Joined: <%= user.member_since %></h4>
+    <h4>Current City: <%= user.current_city %></h4>
+    <a class="button is-info is-hovered" href="/user/<%= id %>/edit-user">Edit Profile</a>
+  </div>
+  <div class="column posts">
 
+    <% posts.forEach(function(post) { %>
+      <% console.log('single post :::::',post)%>
+      <div class="card is-6">
+        <div class="card-content">
+          <div class="columns">
+            <div class="column is-10">
+              <a href="/post/<%= post.id %>">
+                <p class="title"><%= post.title %></p>
+              </a>
+            </div>
+            <div class="column is-1">
+              <a class="icon is-large" href="#">
+                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                <a class="icon is-large" href="#"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+  </div>
+
+  <div class="column is-1">
+  </div>
+</div>
 
 
 

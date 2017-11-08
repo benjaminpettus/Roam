@@ -28,19 +28,33 @@ const byId = (id) => {
   return knex('users')
   .where({id: `${id}`})
   .select()
-  .then( user => user)
+  .then( user => user[0])
 }
 
 const byEmail = (email) => {
   return knex('users')
   .where({email: `${email}`})
   .select()
+  .then( user => user[0])
 }
+
+const updateInfo = ( id, username, current_city ) => {
+  return knex('users')
+  .where({id: `${id}`})
+  .update({
+    username: `${username}`,
+    current_city: `${current_city}`
+  })
+  .select()
+  .then( user => user )
+}
+
 
 module.exports = {
   create,
   byUsername,
   byId,
-  byEmail
+  byEmail,
+  updateInfo
 
 }

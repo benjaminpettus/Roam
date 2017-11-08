@@ -1,19 +1,31 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
    <!-- navbar items, navbar burger... -->
      <a class="nav-item" href="/">VINYL</a>
     </div>
-    
-      <div class="navbar-end nav-menu">
-        <% if (locals.session) { %>
-          <a class="nav-item is-tab" href="/users">Profile</a>
-          <a class="nav-item is-tab" href="/logout">Logout</a>
-        <% } else { %>
-          <a class="nav-item is-tab" href="/signin" >Sign In</a>
-          <a class="nav-item is-tab" href="/signup">Sign Up</a>
-        <% } %>
-      </div>
+    <div class="column is-3">
+    </div>
+
+    <div class="navbar nav-menu city-name">
+      <% if (typeof post == 'object' && post) { %>
+        <%= post.city_name %>
+      <% } %>
+
+    </div>
+
+    <div class="navbar-end nav-menu">
+      <% if (locals.session) { %>
+        <a class="nav-item is-tab" href="/user">Profile</a>
+        <div class="column is-1"></div>
+        <a class="nav-item is-tab" href="/logout">Logout</a>
+      <% } else { %>
+        <a class="nav-item is-tab" href="/signin" >Sign In</a>
+        <div class="column is-1"></div>
+        <a class="nav-item is-tab" href="/signup">Sign Up</a>
+      <% } %>
+    </div>
+
 
   </div>
 </nav>

@@ -6,11 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:create": "createdb roam",
-    "db:drop": "dropdb roam"
+    "db:drop": "dropdb roam",
+    "start": "nodemon server.js",
+    "db:rollback": "",
+    "db:migrate": "",
+    "db:seed": ""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.0",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "bulma": "^0.6.0",
