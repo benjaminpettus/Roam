@@ -10,11 +10,18 @@ city.get('/:cityName', ( request, response ) => {
   .then( city => {
   Posts.byCityId(city.id)
   .then( posts => {
-    response.render('city', { city: city, posts: posts, sesson: request.session })
+    if (request.session.passport){
+      response.render('city', { city: city, posts: posts, sesson: request.session })
+    } else {
+      response.render('city', { city: city, posts: posts })
+    }
   })
   })
 })
 
+city.get('/:cityName/add', ( request, response ) => {
+  response.render('add-post' , { session: request.session })
+})
 
 
 
