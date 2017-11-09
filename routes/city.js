@@ -20,7 +20,13 @@ city.get('/:cityName', ( request, response ) => {
 })
 
 city.get('/:cityName/add', ( request, response ) => {
-  response.render('add-post' , { session: request.session })
+  const { cityName } = request.params
+  const { user } = request.session.passport || ''
+  if( user ){
+    response.render('add-post' , { session: request.session, cityName: cityName, user: user})
+  } else {
+    response.redirect('/city/' + cityName )
+  }
 })
 
 
