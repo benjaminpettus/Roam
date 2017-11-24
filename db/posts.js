@@ -31,11 +31,12 @@ const byId = ( postId ) => {
   .catch( error => console.error )
 }
 
-// const byId = ( postId ) => {
-//   return knex('posts')
-//   .where({ id: `${postId}`})
-//   .then( posts => posts[0] )
-// }
+const byCityId = (cityId) => {
+  return knex('posts')
+  .where('posts.city_id', cityId)
+  .then( posts => posts)
+  .catch( error => console.error )
+}
 
 
 const deleteById = ( postId ) => {
@@ -58,4 +59,5 @@ module.exports = {
   byUserId,
   byId,
   deleteById,
+  byCityId
 }

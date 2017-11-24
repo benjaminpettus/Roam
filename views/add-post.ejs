@@ -1,0 +1,41 @@
+<% include partials/header %>
+
+<h1>Add Post</h1>
+
+<div class="level">
+</div>
+
+<div class="columns">
+  <div class="column is-3">
+  </div>
+  <div class="column is-6">
+    <div class="box is-half">
+      <form class="" action="/city/<%= cityName %>/add" method="PUT">
+        <div class="field">
+          <label class="label is-large">Title</label>
+          <div class="control has-icons-left">
+            <input id="add-title" class="input is-medium" type="text" name="title">
+            <span class="icon is-small is-left">
+              <i class=""></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label is-large">Content</label>
+          <div class="control has-icons-left">
+            <textarea id="add-content" class="textarea" placeholder="Textarea"></textarea>
+            <span class="icon is-small is-left">
+              <i class=""></i>
+            </span>
+          </div>
+        </div>
+        <input id="add-post-button" class="button is-info is-hovered" data-userid="<%= user %>" data-city="<%= cityName %>" value="Add Post">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<% include partials/footer %>

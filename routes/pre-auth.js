@@ -1,15 +1,19 @@
 const preAuth = require('express').Router()
 const Users = require('../db/user')
+const Cities = require('../db/city')
 const bcrypt = require('bcrypt')
 const passport = require('../auth/passport')
 
 
 preAuth.get('/', (request, response) => {
-  if(request.session){
-    response.render('index', { session: request.session.passport })
-  } else{
-    response.render('index')
-  }
+  Cities.getAll()
+  .then(cities => {
+    if(request.session){
+      response.render('index', { cities: cities, session: request.session.passport })
+    } else{
+      response.render('index', {cities: cities})
+    }
+  })
 })
 
 preAuth.get('/signin', (request, response) => {

@@ -1,0 +1,39 @@
+<% include partials/header %>
+
+<section class="hero is-light is-bold is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <%= city.city_name %>
+      </h1>
+      <a class="button" href='/city/<%= city.city_name %>/add'>Add Post</a>
+    </div>
+  </div>
+</section>
+
+  <div class="column posts">
+
+    <% posts.forEach(function(post) { %>
+      <% console.log('from view (city) :::::',post)%>
+      <div class="card is-6">
+        <div class="card-content">
+          <div class="columns">
+            <div class="column is-10">
+              <a href="/post/<%= post.id %>">
+                <p class="title"><%= post.title %></p>
+              </a>
+            </div>
+            <div class="column is-1">
+              <a class="icon is-large" href="#">
+                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                <a class="icon is-large" href="#"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+  </div>
+
+
+
+<% include partials/footer %>

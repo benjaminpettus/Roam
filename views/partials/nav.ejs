@@ -1,8 +1,8 @@
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<nav class="navbar navbar-opacity is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
    <!-- navbar items, navbar burger... -->
-     <a class="nav-item" href="/">VINYL</a>
+     <a class="nav-item" href="/">ROAM</a>
     </div>
     <div class="column is-3">
     </div>
@@ -12,6 +12,9 @@
         <%= post.city_name %>
       <% } %>
 
+      <% if (typeof city == 'object' && city) { %>
+        <%= city.city_name %>
+      <% } %>
     </div>
 
     <div class="navbar-end nav-menu">

@@ -7,6 +7,7 @@
     <figure class="image is-128x128">
       <img src="https://bulma.io/images/placeholders/256x256.png">
     </figure>
+    <% console.log("post from view",post)%>
     <h4>Name: <%= post.username %></h4>
     <h4>Date Joined: <%= post.member_since %></h4>
     <h4>Current City: <%= post.current_city %></h4>
@@ -15,7 +16,7 @@
   <div class="column is-5">
     <h1 class="is-size-1"><%=post.title%></h1>
     <h1 class="is-size-5"><%=post.content%></h1>
-    <p><%= post.city_name %></p>
+    <a href="/city/<%= post.city_name %>"><p><%= post.city_name %></a>
   </div>
 
 </div>

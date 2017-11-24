@@ -10,6 +10,11 @@
     </div>
   </div>
 </section>
-
+<div class="content">
+  <%console.log('in view::',cities)%>
+  <% cities.forEach(function(city) { %>
+    <p><a href="/city/<%- city.city_name %>"><%- city.city_name %></a></p>
+  <% }) %>
+</div>
 
 <% include partials/footer %>
