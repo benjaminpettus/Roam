@@ -13,7 +13,7 @@
 <div class="content">
   <%console.log('in view::',cities)%>
   <% cities.forEach(function(city) { %>
-    <p><%- city.city_name %></p>
+    <p><a href="/city/<%- city.city_name %>"><%- city.city_name %></a></p>
   <% }) %>
 </div>
 

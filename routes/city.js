@@ -8,7 +8,7 @@ city.get('/:cityName', ( request, response ) => {
   console.log(cityName)
   City.getByName(cityName)
   .then( city => {
-  Posts.byCityId(city.id)
+  return Posts.byCityId(city.id)
   .then( posts => {
     if (request.session.passport){
       response.render('city', { city: city, posts: posts, session: request.session })
