@@ -15,12 +15,10 @@ const ELEMENTS = {
 
 const ACTIONS = {
   userUpdate: (userId, username, city) => {
-
     const data = {
       "username": `${username}`,
       "city": `${city}`
     }
-
     fetch(`/user/${userId}/edit-user`, {
       method: 'PUT',
       body: JSON.stringify(data),
@@ -32,7 +30,6 @@ const ACTIONS = {
     .then(HELPERS.checkStatus)
     .catch( error => console.error )
   },
-
   addPost: (title, content, userId, city) => {
     //flesh out the fetch request
     console.log(title, content, userId, city)

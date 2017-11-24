@@ -14,7 +14,10 @@ user.get('/:id', ( request, response ) => {
   .then( user => {
   return Posts.byUserId(id)
   .then( posts => {
-    response.render('profile', {session: request.session, id: `${id}`, user: user, posts: posts})
+    if (request.session.passport) {
+      response.render('profile', {session: request.session, id: `${id}`, user: user, posts: posts})
+    }
+    response.render('profile', {city: city, posts: posts})
   })
   })
   .catch(error => error )
@@ -34,12 +37,13 @@ user.get('/:id/edit-user', ( request, response ) => {
 user.put('/:id/edit-user', ( request, response ) => {
   const { id } = request.params
   const { username, city } = request.body
-  console.log('Body in route::',request.body)
-  console.log(id, username, city)
-  User.updateInfo( id, username, city)
-  .then( user => {
-    response.redirect( '/user/' + id )
-  })
+  if(request.session.passport.user == id){
+    User.updateInfo( id, username, city)
+    .then( user => {
+      response.redirect( '/user/' + id )
+    })
+  }
+  response.redirect('/user/' + id)
 })
 
 

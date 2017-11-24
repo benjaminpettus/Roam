@@ -11,7 +11,7 @@ city.get('/:cityName', ( request, response ) => {
   Posts.byCityId(city.id)
   .then( posts => {
     if (request.session.passport){
-      response.render('city', { city: city, posts: posts, sesson: request.session })
+      response.render('city', { city: city, posts: posts, session: request.session })
     } else {
       response.render('city', { city: city, posts: posts })
     }

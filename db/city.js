@@ -16,6 +16,11 @@ const getById = (cityId) => {
     .catch( error => console.error )
 }
 
+const getAll = () => {
+  return knex('cities')
+  .then(cities => cities)
+  .catch( error => console.error)
+}
 
 
 
@@ -24,5 +29,6 @@ const getById = (cityId) => {
 
 module.exports = {
   getByName,
-  getById
+  getById,
+  getAll
 }
